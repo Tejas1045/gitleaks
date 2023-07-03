@@ -11,6 +11,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: steup gitleaks
       run: |
+        sudo apt install git
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew -v
         brew install gitleaks
     - name: secret scan
       run: |
