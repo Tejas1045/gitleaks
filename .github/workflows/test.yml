@@ -19,6 +19,8 @@ jobs:
         echo "version of brew is as follows"
         brew -v
         brew install gitleaks
+        echo "gitleaks version is as follows"
+        gitleaks version
     - name: secret scan
       run: |
         gitleaks detect -s ${{github.workspace}} -f csv -r output.csv
