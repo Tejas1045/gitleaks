@@ -1,0 +1,15 @@
+name: gitleaks-scan
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [main]
+jobs:
+  secrets-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@V3
+    - name: steup gitleaks
+    
+    
+    
