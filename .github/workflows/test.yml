@@ -14,6 +14,7 @@ jobs:
         sudo apt install git
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        echo "version of brew is as follows"
         brew -v
     - name: install gitleaks
       run: |
