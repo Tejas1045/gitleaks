@@ -28,7 +28,7 @@ jobs:
         ls
         cat output.csv
 #        if [ -s output.csv ]; then
-#          cat output.csv
+#          cat output.json
 #        else
 #          echo "no secrets or cerentials were found"
 #        if
