@@ -1,0 +1,2 @@
+# gitleaks
+git leaks testing 
