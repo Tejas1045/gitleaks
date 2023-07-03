@@ -10,6 +10,29 @@ jobs:
     steps:
     - uses: actions/checkout@V3
     - name: steup gitleaks
+      run: |
+        brew install gitleaks
+    - name: secret scan
+      run: |
+        gitleaks detect -s ${{github.workspace}} -f csv -r output.csv
+      continue-on-error: true
+    - name: check file content
+      id: report
+      run: |
+        if [ -s output.csv ]; then
+          echo "leaks detected secrets"
+          echo "::set-output name=secrets ::1"
+        else
+          echo "no secrets or cerentials were fount"
+        if
+    - name: upload artifacts
+      if: ${{steps.report.outputs.secrets}}
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: gitleaks-report
+        path: output.csv
+        
+        
     
     
     
