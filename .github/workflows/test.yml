@@ -8,7 +8,7 @@ jobs:
   secrets-scan:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@V3
+    - uses: actions/checkout@v3
     - name: steup gitleaks
       run: |
         brew install gitleaks
