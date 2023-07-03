@@ -1,1 +1,1 @@
- Access key ID = AKIAIOSFODNN7EXAMPLE
+ Access key ID = 123
