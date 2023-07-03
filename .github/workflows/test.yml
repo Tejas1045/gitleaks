@@ -21,7 +21,7 @@ jobs:
         brew install gitleaks
         echo "gitleaks version is as follows"
         gitleaks version
-        gitleaks detect -s ${{github.workspace}}
+        gitleaks detect -s ${{github.workspace}} -f csv -r output.csv
       continue-on-error: true
     - name: run logs
       run: |
