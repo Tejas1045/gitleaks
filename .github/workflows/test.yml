@@ -21,23 +21,18 @@ jobs:
         brew install gitleaks
         echo "gitleaks version is as follows"
         gitleaks version
-        gitleaks detect -s ${{github.workspace}}
-#       continue-on-error: true
-#     - name: check file content
-#       id: report
-#       run: |
-#         if [ -s output.csv ]; then
-#           echo "leaks detected secrets"
-#           echo "::set-output name=secrets ::1"
-#         else
-#           echo "no secrets or cerentials were fount"
-#         if
-#     - name: upload artifacts
-#       if: ${{steps.report.outputs.secrets}}
-#       uses: actions/upload-artifact@v3.1.0
-#       with:
-#         name: gitleaks-report
-#         path: output.csv
+        gitleaks detect -s ${{github.workspace}} -f csv -r output.csv
+        if [ -s output.csv ]; then
+          echo "leaks detected secrets"
+          echo "::set-output name=secrets ::1"
+        else
+          echo "no secrets or cerentials were fount"
+        if
+      if: ${{steps.report.outputs.secrets}}
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: gitleaks-report
+        path: output.csv
         
         
     
