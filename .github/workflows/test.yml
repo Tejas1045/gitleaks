@@ -26,6 +26,7 @@ jobs:
     - name: run logs
       run: |
         ls
+        cat output.csv
 #        if [ -s output.csv ]; then
 #          cat output.csv
 #        else
