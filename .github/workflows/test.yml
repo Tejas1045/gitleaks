@@ -27,7 +27,6 @@ jobs:
       run: |
         ls
         cat output.json
-        gitleaks version
 #        if [ -s output.csv ]; then
 #          cat output.json
 #        else
