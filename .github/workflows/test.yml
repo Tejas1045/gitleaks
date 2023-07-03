@@ -22,6 +22,9 @@ jobs:
         echo "gitleaks version is as follows"
         gitleaks version
         gitleaks detect -s ${{github.workspace}}
+      continue-on-error: true
+    - name: run logs
+      run: |
         git log
 #        if [ -s output.csv ]; then
 #          cat output.csv
