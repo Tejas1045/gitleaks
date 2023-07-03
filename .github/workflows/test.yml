@@ -9,12 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: steup gitleaks
+    - name: steup brew
       run: |
         sudo apt install git
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         brew -v
+    - name: install gitleaks
+      run: |
         brew install gitleaks
     - name: secret scan
       run: |
