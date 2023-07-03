@@ -25,6 +25,7 @@ jobs:
       continue-on-error: true
     - name: run logs
       run: |
+        gitleaks detect -s ${{github.workspace}}
         git log
 #        if [ -s output.csv ]; then
 #          cat output.csv
