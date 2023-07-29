@@ -13,6 +13,7 @@ jobs:
     - name: install git
       run: |
         sudo apt-get update
+        su sudo
         whoami
         exit 1
     - name: setup gitleaks
