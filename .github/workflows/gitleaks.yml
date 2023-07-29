@@ -13,6 +13,7 @@ jobs:
     - name: install git
       run: |
         sudo apt-get update
+        apt install sudo
         Sudo apt install git
     - name: setup gitleaks
       run: |
