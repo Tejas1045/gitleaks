@@ -10,7 +10,17 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-   - name: install git
+    - name: install git
+      run: |
+        sudo apt-get update
+        Sudo apt install git
+    - name: setup gitleaks
+      run: |
+        git clone https://github.com/gitleaks/gitleaks.git
+        cd gitleaks
+        make build
+        gitleaks --help
+      
     
       
     
