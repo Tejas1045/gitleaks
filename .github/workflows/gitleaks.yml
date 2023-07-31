@@ -17,8 +17,8 @@ jobs:
       continue-on-error: true
     - name: run logs
       run: |
-        if [ -s output.json ]; then
-         cat output.json
+        if [ -s output.json ]
+           cat output.json
       continue-on-error: true
     - name: upload artifact
       if: ${{steps.report.outputs.secrets}}
