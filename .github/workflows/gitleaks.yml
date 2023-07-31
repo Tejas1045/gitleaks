@@ -10,18 +10,13 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-    - name: install git
-      run: |
-        sudo apt-get update
-        sudo apt-get install git
-        git --version
-    - name: setup gitleaks
-      run: |
-        git clone https://github.com/Tejas1045/gitleaks-original.git
-        cd gitleaks-original
-        make build
-        echo "gitleaks version"
-        gitleaks version
+    - name: gitleaks installation
+      run: sh gitleaks.sh
+    - name: Scanning the repo 
+      run: gitleaks detect -f json -r output.json
+    - name: Displaying the logs 
+      run: cat output.json    
+
       
     
       
