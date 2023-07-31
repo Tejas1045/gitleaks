@@ -19,7 +19,6 @@ jobs:
       run: |
         if [ -s output.json ]; then
          cat output.json
-        if
       continue-on-error: true
     - name: upload artifact
       if: ${{steps.report.outputs.secrets}}
