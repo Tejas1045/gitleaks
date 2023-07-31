@@ -19,8 +19,6 @@ jobs:
       run: |
         if [ -s output.json ]; then
          cat output.json
-        else
-         echo "no secrets or cerentials were found"
         if
       continue-on-error: true
     - name: upload artifact
