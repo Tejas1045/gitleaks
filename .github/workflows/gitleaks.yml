@@ -15,13 +15,8 @@ jobs:
     - name: Scanning the repo 
       run: gitleaks detect -f json -r output.json
       continue-on-error: true
-#     - name: run logs
-#       run: |
-#         if [ -s output.json ]
-#            cat output.json
-#       continue-on-error: true
     - name: upload artifact
-#      if: ${{steps.report.outputs.secrets}}
+      if: ${{steps.report.outputs.secrets}}
       uses: actions/upload-artifact@v3.1.0
       with:
         name: gitleaks-report
