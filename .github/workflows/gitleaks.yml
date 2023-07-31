@@ -10,13 +10,17 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
+      
     - name: gitleaks installation
       run: sh gitleaks.sh
+      
     - name: Scanning the repo 
+      id: report
       run: gitleaks detect -f json -r output.json
       continue-on-error: true
+      
     - name: upload artifact
-      if: ${{steps.report.outputs.secrets}}
+      if: ${{steps.report.outputs.status == failure}}
       uses: actions/upload-artifact@v3.1.0
       with:
         name: gitleaks-report
