@@ -14,8 +14,21 @@ jobs:
       run: sh gitleaks.sh
     - name: Scanning the repo 
       run: gitleaks detect -f json -r output.json
-    - name: Displaying the logs 
-      run: cat output.json    
+      continue-on-error: true
+    - name: run logs
+      run: |
+        if [ -s output.json ]; then
+         cat output.json
+        else
+         echo "no secrets or cerentials were found"
+        if
+      continue-on-error: true
+    - name: upload artifact
+      if: ${{steps.report.outputs.secrets}}
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: gitleaks-report
+        path: output.json
 
       
     
