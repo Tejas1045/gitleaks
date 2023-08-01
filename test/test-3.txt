@@ -1,0 +1,2 @@
+Access key ID = AKIAIOSFODNN7EXAM
+git token = ***REMOVED***
