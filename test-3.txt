@@ -1,5 +1,0 @@
-testing
-
-
-Access key ID = ***REMOVED***
-git token = ***REMOVED***
