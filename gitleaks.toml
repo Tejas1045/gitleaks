@@ -3,17 +3,29 @@ title = "gitleaks"
 [extend]
 # useDefault will extend the base configuration with the default gitleaks config:
 # https://github.com/zricethezav/gitleaks/blob/master/config/gitleaks.toml
-useDefault = true
+#useDefault = true
 
 [[rules]]
-description = "Hardcoded credentials in PHP files"
-id = "credentials-php"
-path = '''(.*?)\.php$'''
-regex = '''(?i)(?:secret|key|password|pwd|pass|token)(?:.{0,20})(?:=){1}(?:.{0,10})[\"\x27`](.{4,120})[\"\x27`]'''
-secretGroup = 1
-entropy = 3
-tags = [
-  "credentials",
-  "hardcoded",
-  "php",
+description = "Hardcoded credentials in files"
+id = "credentials-detect"
+#regex = '''(?i)(?:secret|key|password|pwd|pass|token)(?:.{0,20})(?:=){1}(?:.{0,10})[\"\x27`](.{4,120})[\"\x27`]'''
+regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|key|api|password|user|guid|hostname|pw|auth)(.{0,20})?['|\"]([0-9a-zA-Z-_\\/+!{}/=]{4,120})['|\"]'''
+keywords = [
+  "password","pwd","key",
 ]
+
+#[[rules]]
+#description = "AWS"
+#id = "aws-access-token"
+#regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
+#keywords = [
+#    "akia","agpa","aida","aroa","aipa","anpa","anva","asia",
+#]
+
+#[[rules]]
+#description = "GitHub Personal Access Token"
+#id = "github-pat"
+#regex = '''ghp_[0-9a-zA-Z]{36}'''
+#keywords = [
+#    "ghp_",
+#]
