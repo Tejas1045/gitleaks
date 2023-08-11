@@ -6,13 +6,12 @@ title = "gitleaks"
 #useDefault = true
 
 [[rules]]
-description = "Hardcoded credentials in files"
-id = "credentials-detect"
-#regex = '''(?i)(?:secret|key|password|pwd|pass|token)(?:.{0,20})(?:=){1}(?:.{0,10})[\"\x27`](.{4,120})[\"\x27`]'''
-regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|key|api|password|user|guid|hostname|pw|auth)(.{0,20})?['|\"]([0-9a-zA-Z-_\\/+!{}/=]{4,120})['|\"]'''
-keywords = [
-  "password","pwd","key",
-]
+description = "Generic API Key 2"
+id = "generic-api-key-2"
+regex = '''^.*_?(paswd|passwd|password|Password|pAssword|PAssword|paSsword|PaSsword|pASsword|PASsword|pasSword|PasSword|pAsSword|PAsSword|paSSword|PaSSword|pASSword|PASSword|passWord|PassWord|pAssWord|PAssWord|paSsWord|PaSsWord|pASsWord|PASsWord|pasSWord|PasSWord|pAsSWord|PAsSWord|paSSWord|PaSSWord|pASSWord|PASSWord|passwOrd|PasswOrd|pAsswOrd|PAsswOrd|paSswOrd|PaSswOrd|pASswOrd|PASswOrd|pasSwOrd|PasSwOrd|pAsSwOrd|PAsSwOrd|paSSwOrd|PaSSwOrd|pASSwOrd|PASSwOrd|passWOrd|PassWOrd|pAssWOrd|PAssWOrd|paSsWOrd|PaSsWOrd|pASsWOrd|PASsWOrd|pasSWOrd|PasSWOrd|pAsSWOrd|PAsSWOrd|paSSWOrd|PaSSWOrd|pASSWOrd|PASSWOrd|passwoRd|PasswoRd|pAsswoRd|PAsswoRd|paSswoRd|PaSswoRd|pASswoRd|PASswoRd|pasSwoRd|PasSwoRd|pAsSwoRd|PAsSwoRd|paSSwoRd|PaSSwoRd|pASSwoRd|PASSwoRd|passWoRd|PassWoRd|pAssWoRd|PAssWoRd|paSsWoRd|PaSsWoRd|pASsWoRd|PASsWoRd|pasSWoRd|PasSWoRd|pAsSWoRd|PAsSWoRd|paSSWoRd|PaSSWoRd|pASSWoRd|PASSWoRd|passwORd|PasswORd|pAsswORd|PAsswORd|paSswORd|PaSswORd|pASswORd|PASswORd|pasSwORd|PasSwORd|pAsSwORd|PAsSwORd|paSSwORd|PaSSwORd|pASSwORd|PASSwORd|passWORd|PassWORd|pAssWORd|PAssWORd|paSsWORd|PaSsWORd|pASsWORd|PASsWORd|pasSWORd|PasSWORd|pAsSWORd|PAsSWORd|paSSWORd|PaSSWORd|pASSWORd|PASSWORd|passworD|PassworD|pAssworD|PAssworD|paSsworD|PaSsworD|pASsworD|PASsworD|pasSworD|PasSworD|pAsSworD|PAsSworD|paSSworD|PaSSworD|pASSworD|PASSworD|passWorD|PassWorD|pAssWorD|PAssWorD|paSsWorD|PaSsWorD|pASsWorD|PASsWorD|pasSWorD|PasSWorD|pAsSWorD|PAsSWorD|paSSWorD|PaSSWorD|pASSWorD|PASSWorD|passwOrD|PasswOrD|pAsswOrD|PAsswOrD|paSswOrD|PaSswOrD|pASswOrD|PASswOrD|pasSwOrD|PasSwOrD|pAsSwOrD|PAsSwOrD|paSSwOrD|PaSSwOrD|pASSwOrD|PASSwOrD|passWOrD|PassWOrD|pAssWOrD|PAssWOrD|paSsWOrD|PaSsWOrD|pASsWOrD|PASsWOrD|pasSWOrD|PasSWOrD|pAsSWOrD|PAsSWOrD|paSSWOrD|PaSSWOrD|pASSWOrD|PASSWOrD|passwoRD|PasswoRD|pAsswoRD|PAsswoRD|paSswoRD|PaSswoRD|pASswoRD|PASswoRD|pasSwoRD|PasSwoRD|pAsSwoRD|PAsSwoRD|paSSwoRD|PaSSwoRD|pASSwoRD|PASSwoRD|passWoRD|PassWoRD|pAssWoRD|PAssWoRD|paSsWoRD|PaSsWoRD|pASsWoRD|PASsWoRD|pasSWoRD|PasSWoRD|pAsSWoRD|PAsSWoRD|paSSWoRD|PaSSWoRD|pASSWoRD|PASSWoRD|passwORD|PasswORD|pAsswORD|PAsswORD|paSswORD|PaSswORD|pASswORD|PASswORD|pasSwORD|PasSwORD|pAsSwORD|PAsSwORD|paSSwORD|PaSSwORD|pASSwORD|PASSwORD|passWORD|PassWORD|pAssWORD|PAssWORD|paSsWORD|PaSsWORD|pASsWORD|PASsWORD|pasSWORD|PasSWORD|pAsSWORD|PAsSWORD|paSSWORD|PaSSWORD|pASSWORD|PASSWORD|pwd|Pwd|pWd|PWd|pwD|PwD|pWD|PWD|pass|Pass|pAss|PAss|paSs|PaSs|pASs|PASs|pasS|PasS|pAsS|PAsS|paSS|PaSS|pASS|PASS|pswd|Pswd|pSwd|PSwd|psWd|PsWd|pSWd|PSWd|pswD|PswD|pSwD|PSwD|psWD|PsWD|pSWD|PSWD)_?.*(\"|')?\\s*(:|=>|=)\\s*(\"|')?[^\"\"]{1,}(\"|')?$'''
+secretGroup = 1
+entropy = 3.5
+
 
 #[[rules]]
 #description = "AWS"
