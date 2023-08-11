@@ -12,6 +12,16 @@ regex = '''^.*_?(paswd|passwd|password|Password|pAssword|PAssword|paSsword|PaSsw
 secretGroup = 1
 entropy = 3.5
 
+useDefault = true
+
+[[rules]]
+description = "Hardcoded credentials in files"
+id = "credentials-detect"
+#regex = '''(?i)(?:secret|key|password|pwd|pass|token)(?:.{0,20})(?:=){1}(?:.{0,10})[\"\x27`](.{4,120})[\"\x27`]'''
+regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|key|api|password|user|guid|hostname|pw|auth)(.{0,20})?['|\"]([0-9a-zA-Z-_\\/+!{}/=]{4,120})['|\"]'''
+keywords = [
+  "password","pwd","key",
+]
 
 #[[rules]]
 #description = "AWS"
